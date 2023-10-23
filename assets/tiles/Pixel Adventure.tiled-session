@@ -7,6 +7,17 @@
     "expandedProjectPaths": [
     ],
     "fileStates": {
+        "level_01.tmx": {
+            "expandedObjectLayers": [
+                2
+            ],
+            "scale": 1.2053125,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 301.16670987814365,
+                "y": 183.3549390718175
+            }
+        }
     },
     "last.imagePath": "D:/flutter/pixel_adventure/assets/images/Terrain",
     "map.height": 23,
