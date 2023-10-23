@@ -11,7 +11,7 @@ class PixelAdventure extends FlameGame {
 
   late final CameraComponent cam;
   @override
-  final world = Level(levelName: 'level_02');
+  final world = Level(levelName: 'level_01');
   @override
   FutureOr<void> onLoad() async {
     // Load all images into cache
