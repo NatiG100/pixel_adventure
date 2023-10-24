@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:ui';
 
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
@@ -32,13 +31,12 @@ class PixelAdventure extends FlameGame
       world: world,
       width: 640,
       height: 360,
+      hudComponents: [if (showJoystick) addJoyStick()],
     );
     cam.viewfinder.anchor = Anchor.topLeft;
 
     addAll([cam, world]);
-    if (showJoystick) {
-      addJoyStick();
-    }
+
 
     return super.onLoad();
   }
@@ -51,7 +49,7 @@ class PixelAdventure extends FlameGame
     super.update(dt);
   }
 
-  void addJoyStick() {
+  JoystickComponent addJoyStick() {
     joystick = JoystickComponent(
       knob: SpriteComponent(
         sprite: Sprite(
@@ -65,7 +63,7 @@ class PixelAdventure extends FlameGame
       ),
       margin: const EdgeInsets.only(left: 32, bottom: 32),
     );
-    add(joystick);
+    return joystick;
   }
 
   void updateJoystic() {
