@@ -10,7 +10,11 @@ import 'package:pixel_adventure/components/player.dart';
 import 'package:pixel_adventure/components/level.dart';
 
 class PixelAdventure extends FlameGame
-    with HasKeyboardHandlerComponents, DragCallbacks, HasCollisionDetection, TapCallbacks {
+    with
+        HasKeyboardHandlerComponents,
+        DragCallbacks,
+        HasCollisionDetection,
+        TapCallbacks {
   @override
   Color backgroundColor() => const Color(0xFF211F30);
 
@@ -26,11 +30,7 @@ class PixelAdventure extends FlameGame
     // Load all images into cache
     await images.loadAllImages();
     _loadLevel();
-    if (showControls) {
-      addJoyStick();
-      add(JumpButton());
-    }
-
+    joystick = addJoyStick();
     return super.onLoad();
   }
 
@@ -42,7 +42,7 @@ class PixelAdventure extends FlameGame
     super.update(dt);
   }
 
-  void addJoyStick() {
+  JoystickComponent addJoyStick() {
     joystick = JoystickComponent(
       priority: 200,
       knob: SpriteComponent(
@@ -55,9 +55,9 @@ class PixelAdventure extends FlameGame
           images.fromCache('HUD/Joystick.png'),
         ),
       ),
-      margin: const EdgeInsets.only(left: 32, bottom: 32),
+      margin: const EdgeInsets.only(left: 32, bottom: 55),
     );
-    add(joystick);
+    return joystick;
   }
 
   void updateJoystic() {
@@ -99,7 +99,9 @@ class PixelAdventure extends FlameGame
       );
 
       List<Component> components = [];
-
+      if (showControls) {
+        components.addAll([joystick]);
+      }
       cam = CameraComponent.withFixedResolution(
         world: world,
         width: 640,
@@ -109,6 +111,9 @@ class PixelAdventure extends FlameGame
       cam.viewfinder.anchor = Anchor.topLeft;
 
       addAll([cam, world]);
+      if (showControls) {
+        world.add(JumpButton());
+      }
     });
   }
 }
