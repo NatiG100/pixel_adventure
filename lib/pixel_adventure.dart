@@ -22,7 +22,7 @@ class PixelAdventure extends FlameGame
   late CameraComponent cam;
   Player player = Player(character: 'Ninja Frog');
   bool showControls = true;
-  List<String> levelNames = ['level_01', 'level_01'];
+  List<String> levelNames = ['level_01', 'level_02'];
   int currentLevelIndex = 0;
 
   @override
@@ -84,6 +84,8 @@ class PixelAdventure extends FlameGame
       currentLevelIndex++;
       _loadLevel();
     } else {
+      currentLevelIndex = 0;
+      _loadLevel();
       // no more level
     }
   }
