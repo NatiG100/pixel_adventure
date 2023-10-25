@@ -4,7 +4,7 @@ import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flame/game.dart';
 import 'package:flame/input.dart';
-import 'package:flutter/material.dart'; 
+import 'package:flutter/material.dart';
 import 'package:pixel_adventure/components/player.dart';
 import 'package:pixel_adventure/components/level.dart';
 
@@ -60,7 +60,7 @@ class PixelAdventure extends FlameGame
           images.fromCache('HUD/Joystick.png'),
         ),
       ),
-      margin: const EdgeInsets.only(left: 32, bottom: 32),
+      margin: const EdgeInsets.only(left: 15, bottom: 50),
     );
     return joystick;
   }
@@ -76,6 +76,9 @@ class PixelAdventure extends FlameGame
       case JoystickDirection.downRight:
       case JoystickDirection.upRight:
         player.horizontalMovement = 1;
+        break;
+      case JoystickDirection.up:
+        player.hasJumped = true;
         break;
       default:
         player.horizontalMovement = 0;

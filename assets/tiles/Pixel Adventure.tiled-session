@@ -40,6 +40,7 @@
     "openFiles": [
     ],
     "project": "Pixel Adventure.tiled-project",
+    "property.type": "float",
     "recentFiles": [
     ],
     "tileset.lastUsedFormat": "tsx",
