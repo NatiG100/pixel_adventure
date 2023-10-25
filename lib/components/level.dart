@@ -83,13 +83,13 @@ class Level extends World with HasGameRef<PixelAdventure> {
           );
           add(saw);
           break;
-        // case 'Checkpoint':
-        //   final checkpoint = Checkpoint(
-        //     position: Vector2(spawnPoint.x, spawnPoint.y),
-        //     size: Vector2(spawnPoint.width, spawnPoint.height),
-        //   );
-        //   add(checkpoint);
-        //   break;
+        case 'Checkpoint':
+          final checkpoint = Checkpoint(
+            position: Vector2(spawnPoint.x, spawnPoint.y),
+            size: Vector2(spawnPoint.width, spawnPoint.height),
+          );
+          add(checkpoint);
+          break;
         default:
           break;
       }
