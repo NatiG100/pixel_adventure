@@ -22,6 +22,8 @@ class PixelAdventure extends FlameGame
   late CameraComponent cam;
   Player player = Player(character: 'Ninja Frog');
   bool showControls = false;
+  bool playSounds = true;
+  double soundVolume = 1.0;
   List<String> levelNames = ['level_01', 'level_02'];
   int currentLevelIndex = 0;
 
@@ -82,12 +84,10 @@ class PixelAdventure extends FlameGame
     removeWhere((component) => component is Level);
     if (currentLevelIndex < levelNames.length - 1) {
       currentLevelIndex++;
-      _loadLevel();
     } else {
       currentLevelIndex = 0;
-      _loadLevel();
-      // no more level
     }
+    _loadLevel();
   }
 
   void _loadLevel() {
