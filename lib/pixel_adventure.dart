@@ -21,7 +21,7 @@ class PixelAdventure extends FlameGame
   late JoystickComponent joystick;
   late CameraComponent cam;
   Player player = Player(character: 'Ninja Frog');
-  bool showControls = true;
+  bool showControls = false;
   List<String> levelNames = ['level_01', 'level_02'];
   int currentLevelIndex = 0;
 
